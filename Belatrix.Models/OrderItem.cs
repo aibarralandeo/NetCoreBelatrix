@@ -7,5 +7,8 @@
         public int ProductId { get; set; }
         public decimal UnitPrice { get; set; }
         public int Quantity { get; set; }
+
+        public virtual Order RelatedOrder { get; set; }
+        public virtual Product RelatedProduct { get; set; }
     }
 }

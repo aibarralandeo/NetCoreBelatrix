@@ -1,7 +1,13 @@
-﻿namespace Belatrix.WebApi.Models
+﻿using System.Collections.Generic;
+
+namespace Belatrix.WebApi.Models
 {
     public class Supplier
     {
+        public Supplier()
+        {
+            Products = new HashSet<Product>();
+        }
         public int Id { get; set; }
         public string CompanyName { get; set; }
         public string ContactName { get; set; }
@@ -10,5 +16,7 @@
         public string Country { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

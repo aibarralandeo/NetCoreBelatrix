@@ -13,9 +13,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0-preview5-19227-01" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0-preview5.19227.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Belatrix.Models\Belatrix.WebApi.Models.csproj" />
+    <ProjectReference Include="..\Belatrix.WebApi.Repository.Postgresql\Belatrix.WebApi.Repository.Postgresql.csproj" />
   </ItemGroup>
 
 </Project>
