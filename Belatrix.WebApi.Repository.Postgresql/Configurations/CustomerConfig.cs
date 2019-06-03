@@ -8,7 +8,9 @@ namespace Belatrix.WebApi.Repository.Postgresql.Configurations
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            builder.ToTable("customer");
+            builder.ToTable("customer")
+                .HasKey(p => p.Id)
+                .HasName("customer_id_pkey");
 
             builder.HasIndex(p => new { p.LastName, p.FirstName })
                 .HasName("customer_name_idx");
