@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using Belatrix.WebApi.Repository;
-using Microsoft.EntityFrameworkCore;
 
 namespace Belatrix.WebApi.Repository.Postgresql
 {
@@ -27,7 +24,7 @@ namespace Belatrix.WebApi.Repository.Postgresql
             belatrixDbContext.Set<T>().Remove(entity);
             return await belatrixDbContext.SaveChangesAsync() > 0;
         }
-
+        
         public async Task<IEnumerable<T>> Read()
         {
             return await belatrixDbContext.Set<T>().ToListAsync();

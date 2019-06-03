@@ -1,9 +1,6 @@
 ﻿using Belatrix.WebApi.Models;
 using Belatrix.WebApi.Repository.Postgresql.Configurations;
-using Belatrix.WebApi.Repository.Postgresql.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Belatrix.WebApi.Repository.Postgresql
 {
