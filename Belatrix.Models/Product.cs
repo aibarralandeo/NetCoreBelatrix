@@ -5,9 +5,11 @@ namespace Belatrix.WebApi.Models
     public class Product
     {
         public Product()
+
         {
-            OrderItems = new HashSet<OrderItem>();
+            OrderItem = new HashSet<OrderItem>();
         }
+
         public int Id { get; set; }
         public string ProductName { get; set; }
         public int SupplierId { get; set; }
@@ -15,7 +17,8 @@ namespace Belatrix.WebApi.Models
         public string Package { get; set; }
         public bool IsDiscontinued { get; set; }
 
-        public virtual Supplier RelatedSupplier { get; set; }
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public Supplier Supplier { get; set; }
+
+        public ICollection<OrderItem> OrderItem { get; set; }
     }
 }

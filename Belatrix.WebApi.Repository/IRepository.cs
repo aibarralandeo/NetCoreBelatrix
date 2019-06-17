@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Belatrix.WebApi.Repository
 {
-    public interface IRepository<T> where T: class
+    public interface IRepository<T>
     {
         Task<int> Create(T entity);
         Task<IEnumerable<T>> Read();

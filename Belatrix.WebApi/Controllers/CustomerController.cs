@@ -1,7 +1,9 @@
 ﻿using Belatrix.WebApi.Models;
 using Belatrix.WebApi.Repository;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Belatrix.WebApi.Controllers
@@ -10,43 +12,36 @@ namespace Belatrix.WebApi.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly Repository.IRepository<Customer> repository;
+        private readonly IRepository<Customer> _repository;
 
         public CustomerController(IRepository<Customer> repository)
         {
-            this.repository = repository;
+            _repository = repository;
         }
 
-        // GET: api/Customer
         [HttpGet]
-        public async Task<IActionResult> GetCustomers()
+        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
         {
-            return Ok(await repository.Read());
+            return Ok(await _repository.Read());
         }
 
-        //// GET: api/Customer/5
-        //[HttpGet("{id}", Name = "Get")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        [HttpPost]
+        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
+        {
+            await _repository.Create(customer);
+            return Ok(customer.Id);
+        }
 
-        //// POST: api/Customer
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
+        [HttpPut]
+        public async Task<ActionResult<bool>> PutCustomer(Customer customer)
+        {
+            return Ok(await _repository.Update(customer));
+        }
 
-        //// PUT: api/Customer/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE: api/ApiWithActions/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        [HttpDelete]
+        public async Task<ActionResult<bool>> DeleteCustomer(int customerId)
+        {
+            return Ok(await _repository.Delete(new Customer { Id = customerId }));
+        }
     }
 }

@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Belatrix.WebApi", "Belatrix
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Belatrix.WebApi.Models", "Belatrix.Models\Belatrix.WebApi.Models.csproj", "{EA60782B-129D-4B15-82E7-7BD371AE0C50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belatrix.WebApi.Repository", "Belatrix.WebApi.Repository\Belatrix.WebApi.Repository.csproj", "{1D8954A8-FB4D-4F20-9A8C-971EEC5DB4F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Belatrix.WebApi.Repository", "Belatrix.WebApi.Repository\Belatrix.WebApi.Repository.csproj", "{16C09C2E-51D9-4DE9-A1F2-503DAAD5D4B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belatrix.WebApi.Repository.Postgresql", "Belatrix.WebApi.Repository.Postgresql\Belatrix.WebApi.Repository.Postgresql.csproj", "{F0ACA9B2-9D7C-4626-9C86-EA0430C09B31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Belatrix.WebApi.Repository.Postgresql", "Belatrix.WebApi.Repository.Postgresql\Belatrix.WebApi.Repository.Postgresql.csproj", "{9419DE6A-31ED-4CA4-A910-4564A4534368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Belatrix.WebApi.Tests", "Belatrix.WebApi.Tests\Belatrix.WebApi.Tests.csproj", "{0A081D74-21AC-411D-844A-E613EE7C3F22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +27,18 @@ Global
 		{EA60782B-129D-4B15-82E7-7BD371AE0C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA60782B-129D-4B15-82E7-7BD371AE0C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA60782B-129D-4B15-82E7-7BD371AE0C50}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1D8954A8-FB4D-4F20-9A8C-971EEC5DB4F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D8954A8-FB4D-4F20-9A8C-971EEC5DB4F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D8954A8-FB4D-4F20-9A8C-971EEC5DB4F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D8954A8-FB4D-4F20-9A8C-971EEC5DB4F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0ACA9B2-9D7C-4626-9C86-EA0430C09B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0ACA9B2-9D7C-4626-9C86-EA0430C09B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0ACA9B2-9D7C-4626-9C86-EA0430C09B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0ACA9B2-9D7C-4626-9C86-EA0430C09B31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C09C2E-51D9-4DE9-A1F2-503DAAD5D4B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C09C2E-51D9-4DE9-A1F2-503DAAD5D4B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C09C2E-51D9-4DE9-A1F2-503DAAD5D4B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C09C2E-51D9-4DE9-A1F2-503DAAD5D4B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9419DE6A-31ED-4CA4-A910-4564A4534368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9419DE6A-31ED-4CA4-A910-4564A4534368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9419DE6A-31ED-4CA4-A910-4564A4534368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9419DE6A-31ED-4CA4-A910-4564A4534368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A081D74-21AC-411D-844A-E613EE7C3F22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A081D74-21AC-411D-844A-E613EE7C3F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A081D74-21AC-411D-844A-E613EE7C3F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A081D74-21AC-411D-844A-E613EE7C3F22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

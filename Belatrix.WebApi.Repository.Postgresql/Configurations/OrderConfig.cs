@@ -1,45 +1,92 @@
 ﻿using Belatrix.WebApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Belatrix.WebApi.Repository.Postgresql.Configurations
 {
     internal class OrderConfig : IEntityTypeConfiguration<Order>
     {
         public void Configure(EntityTypeBuilder<Order> builder)
+
         {
-            builder.ToTable("order");
 
-            builder.HasIndex(p => new { p.CustomerId, p.OrderDate })
-                .HasName("order_customer_idx");
+            builder.ToTable("order")
 
-            builder.Property(p => p.Id)
+                .HasKey(c => c.Id)
+
+                .HasName("order_id_pkey"); ;
+
+
+
+            builder.HasIndex(e => e.CustomerId)
+
+                .HasName("order_customer_id__idx");
+
+
+
+            builder.HasIndex(e => e.OrderDate)
+
+                .HasName("order_order_date__idx");
+
+
+
+            builder.Property(e => e.Id)
+
                 .HasColumnName("id")
-                .UseNpgsqlIdentityColumn();
 
-            builder.Property(p => p.OrderDate)
+                .UseNpgsqlIdentityColumn()
+
+                .IsRequired();
+
+
+
+            builder.Property(e => e.CustomerId).HasColumnName("customer_id");
+
+
+
+            builder.Property(e => e.OrderDate)
+
                 .HasColumnName("order_date")
-                .IsRequired(true);
 
-            builder.Property(p => p.OrderNumber)
+                .HasColumnType("date");
+
+
+
+            builder.Property(e => e.OrderNumber)
+
                 .HasColumnName("order_number")
+
                 .HasMaxLength(10)
-                .IsRequired(true);
 
-            builder.Property(p => p.CustomerId)
-                .HasColumnName("customer_id")
-                .IsRequired(true);
+                .IsRequired();
 
-            builder.HasOne(p => p.RelatedCustomer)
-                .WithMany(p => p.Orders)
-                .HasConstraintName("order_customer_id_fkey")
-                .HasForeignKey(p => p.CustomerId)
-                .IsRequired(true);
 
-            builder.Property(p => p.TotalAmount)
+
+            builder.Property(e => e.TotalAmount)
+
                 .HasColumnName("total_amount")
-                .HasColumnType("decimal(12,2)")
-                .IsRequired(true);
+
+                .HasColumnType("numeric(12,2)")
+
+                .HasDefaultValueSql("0")
+
+                .IsRequired();
+
+
+
+            builder.HasOne(d => d.Customer)
+
+                .WithMany(p => p.Order)
+
+                .HasForeignKey(d => d.CustomerId)
+
+                .OnDelete(DeleteBehavior.ClientSetNull)
+
+                .HasConstraintName("order__reference_customer__idx");
+
         }
     }
 }
