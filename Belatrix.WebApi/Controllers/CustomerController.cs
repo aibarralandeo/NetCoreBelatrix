@@ -1,9 +1,8 @@
-﻿using Belatrix.WebApi.Models;
+﻿using Belatrix.WebApi.Filters;
+using Belatrix.WebApi.Models;
 using Belatrix.WebApi.Repository;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Belatrix.WebApi.Controllers
@@ -20,6 +19,7 @@ namespace Belatrix.WebApi.Controllers
         }
 
         [HttpGet]
+        [CustomerResultFilter]
         public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
         {
             return Ok(await _repository.Read());
